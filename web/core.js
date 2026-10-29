@@ -40,8 +40,8 @@ const DEVICE_CHIPS = {
 }
 
 const DEVICE_FIRMWARE_MAP = {
-	'm5stick-c-plus2': './firmware/m5stick-c-plus2/tosstalk-merged.bin',
-	'm5stick-s3': './firmware/m5stick-s3/tosstalk-merged.bin'
+	'm5stick-c-plus2': './firmware/m5stick-c-plus2/tosstalk_merged.bin',
+	'm5stick-s3': './firmware/m5stick-s3/tosstalk_merged.bin'
 }
 function getDeviceFwUrl(device) {
 	if (!DEVICE_FIRMWARE_MAP) {
