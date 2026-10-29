@@ -17,9 +17,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: firmware
+
     steps:
       - uses: actions/checkout@v4
 
@@ -31,14 +29,8 @@ jobs:
       - name: Install PlatformIO
         run: pip install platformio esptool
 
-      - name: Build firmware
-        run: pio run
-
-      - name: Merge firmware image
-        run: |
-          python ../scripts/merge_firmware.py \
-            --env-dir .pio/build/m5stick-c-plus2 \
-            --out .pio/build/m5stick-c-plus2/tosstalk-merged.bin
+      - name: Build and merge firmware
+        run: bash build.sh
 
       - name: Upload firmware artifacts
         uses: actions/upload-artifact@v4
@@ -49,3 +41,7 @@ jobs:
             firmware/.pio/build/m5stick-c-plus2/bootloader.bin
             firmware/.pio/build/m5stick-c-plus2/partitions.bin
             firmware/.pio/build/m5stick-c-plus2/tosstalk-merged.bin
+            firmware/.pio/build/m5stick-s3/firmware.bin
+            firmware/.pio/build/m5stick-s3/bootloader.bin
+            firmware/.pio/build/m5stick-s3/partitions.bin
+            firmware/.pio/build/m5stick-s3/tosstalk-merged.bin

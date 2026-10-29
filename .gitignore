@@ -28,6 +28,7 @@ pnpm-debug.log*
 .piolibdeps/
 .clangd/
 compile_commands.json
+web/firmware
 
 # Arduino
 *.ino.cpp

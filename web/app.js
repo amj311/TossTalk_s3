@@ -147,7 +147,7 @@ flashBtn.addEventListener('click', async () => {
   flashBtn.disabled = true;
   flashProgress.value = 0;
   try {
-    await flashFirmware({ firmwareUrl: DEFAULT_FW_URL, eraseAll: true });
+    await flashFirmware({ eraseAll: true });
   } catch (e) {
     // flashStatus already shows the error; log to console for debugging
     console.error('Flash failed:', e);
